@@ -23,13 +23,18 @@ genre_list <- c("Action", "Adventure", "Animation", "Children",
                 "Sci-Fi", "Thriller", "War", "Western") 
 
 # Creates a matrix for the number of movies + 1 and the number of genres
+
 genre_matrix <- matrix(0, 9126, 18)
 # Set first row to genre list
+
 genre_matrix[1,] <- genre_list
+
 # Set column names to genre list
+
 colnames(genre_matrix) <- genre_list
 
 # Iterate through matrix
+
 for (i in 1:nrow(genres)) {
   for (c in 1:ncol(genres)) {
     genmat_col = which(genre_matrix[1,] == genres[i,c])
@@ -39,8 +44,11 @@ for (i in 1:nrow(genres)) {
 
 # Convert the matrix into a data frame
 # Remove first row, which was the genre list
+
 genre_matrix <- as.data.frame(genre_matrix[-1,], stringsAsFactors = FALSE) 
+
 # Convert from characters to integers
+
 for (c in 1:ncol(genre_matrix)) {
   genre_matrix[,c] <- as.integer(genre_matrix[,c])  
 } 
